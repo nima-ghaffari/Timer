@@ -31,23 +31,6 @@ This is a simple web-based countdown timer application with a clean, glassmorphi
 * **CSS3:** For styling and creating the glassmorphic effect.
 * **JavaScript (ES6+):** For all interactive functionalities of the timer.
 
-## Setup and Installation
-
-To get a copy of this project up and running on your local machine, follow these simple steps:
-
-1.  **Clone the repository:**
-    ```bash
-    git clone <repository_url>
-    ```
-    Replace `<repository_url>` with the actual URL of your GitHub repository.
-
-2.  **Navigate to the project directory:**
-    ```bash
-    cd timer-c-nima-ghaffari
-    ```
-
-3.  **Open `index.html`:**
-    Simply open the `index.html` file in your preferred web browser. No special server setup is required as it's a front-end only application.
 
 ## Usage
 
