@@ -94,3 +94,54 @@ function resetControls(clearHistory = true) {
     }
 }
 
+startButton.addEventListener('click', () => {
+    const hour = Number(hourInput.value) || 0;
+    const minute = Number(minuteInput.value) || 0;
+    const second = Number(secondInput.value) || 0;
+
+    totalSeconds = hour * 3600 + minute * 60 + second;
+
+    if (totalSeconds <= 0) {
+        alert("Please enter a time greater than zero.");
+        return;
+    }
+    
+    timeHistory = [];
+    renderHistory();
+    display.textContent = formatTime(totalSeconds);
+    startTimer();
+});
+
+pauseButton.addEventListener('click', () => {
+    if (isPaused) {
+        startTimer(); 
+    } else {
+        clearInterval(timerInterval);
+        isPaused = true;
+        pauseButton.textContent = 'Resume';
+    }
+});
+
+resetButton.addEventListener('click', () => {
+    resetControls(true);
+});
+
+lapButton.addEventListener('click', () => {
+    if (!isPaused && totalSeconds > 0) {
+        const currentSecond = totalSeconds;
+        timeHistory.push({
+            display: formatTime(currentSecond),
+            seconds: currentSecond
+        });
+        renderHistory();
+    }
+});
+
+[hourInput, minuteInput, secondInput].forEach(input => {
+    input.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            startButton.click();
+        }
+    });
+});
